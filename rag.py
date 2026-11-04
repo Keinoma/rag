@@ -22,9 +22,9 @@ DOCS_DIR = BASE / "documents"      # tes PDF / txt / md
 DB_DIR = BASE / "chroma_db"        # l'index sera stocké ici
 
 EMBED_MODEL = "BAAI/bge-m3"        # embeddings multilingues (bon en français)
-CHUNK_CHARS = 1500                 # 
+CHUNK_CHARS = 750                 # 
 OVERLAP_CHARS = 300                # chevauchement entre morceaux
-TOP_K = 2                        # nombre d'extraits envoyés au LLM
+TOP_K = 5                        # nombre d'extraits envoyés au LLM
 
 # LLM : None = on lit le nom du modèle de base dans adapter_config.json.
 # Sinon mets un nom ou un chemin, ex. "Qwen/Qwen2.5-3B-Instruct"
@@ -32,14 +32,15 @@ LLM_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 USE_ADAPTER = False                # True = applique ton adapter LoRA par-dessus
 ADAPTER_DIR = Path(r"C:\Projets\finetune\modele_finetuned_lora")
 LOAD_4BIT = True                   # 4 bits : économise la VRAM
-MAX_NEW_TOKENS = 512
-HISTORY_TURNS = 3                  # nombre d'échanges gardés en mémoire
+MAX_NEW_TOKENS = 150
+HISTORY_TURNS = 0                  # nombre d'échanges gardés en mémoire
 
 SYSTEM_PROMPT = (
     "Tu es un assistant pédagogique. Réponds en français, uniquement à partir "
-    "des extraits fournis. Cite tes sources avec [1], [2], etc. Si "
+    "de ce contexte. Cite tes sources avec [1], [2], etc. Si "
     "l'information n'est pas dans les extraits, dis-le clairement au lieu "
-    "d'inventer."
+    "d'inventer. Sois concis : environ 2 ou 3, sans répéter la question "
+    "ni recopier les extraits."
 )
 
 

@@ -1,0 +1,71 @@
+Q1 : Quel film dans ce contexte traite de la relation père-fils ?
+R1 : Le film traitant de la relation père-fils est "Kung-Fu Panda 3". Dans ce film, Shifu, le père de Po, enseigne à son fils de ne pas vouloir être un professeur, mais plutôt de se concentrer sur sa propre personnalité. Ce conflit est central dans la relation entre Shifu et Po, car Shifu cherche à protéger Po tandis que Po souhaite explorer son identité et sa passion pour la kung fu.
+Sources : [1] kungfu_panda.txt p.1 ; [2] pirates_caraibes.txt p.1 ; [3] kungfu_panda.txt p.1 ; [4] kungfu_panda.txt p.1 ; [5] kungfu_panda.txt p.1
+
+Q2 : Quel film dans ce contexte parle d'une technique ancestrale que seuls très peu d'individus apprennent à maîtriser ?
+R2 : Selon les extraits fournis, le film "Kung-Fu Panda" parle d'une technique ancestrale que seules très peu d'individus apprennent à maîtriser. Cette technique est connue sous le nom de "Quête de la 'paix intérieure'" ou "Quête de la 'paix extérieure'", qui consiste à recueillir une goutte d'eau tombée du ciel, de la faire glisser le long de ses bras sans la rompre, puis de la déposer sur une feuille. Cette technique est mentionnée dans le premier extrait comme étant transmise par le grand maître Oogway à Po.
+Sources : [1] kungfu_panda.txt p.1 ; [2] kungfu_panda.txt p.1 ; [3] kungfu_panda.txt p.1 ; [4] kungfu_panda.txt p.1 ; [5] kungfu_panda.txt p.1
+
+Q3 : Quel film dans ce contexte suit la création d'un groupe de musique de renommée mondiale ?
+R3 : Selon les extraits fournis, aucun film ne suit la création d'une groupe de musique de renommée mondiale. Les extrêts parlent plutôt de films comme "La Fontaine de Jouvence", "Jusqu'au bout du monde" et "Kung-Fu Panda 2". Ces films traitent principalement de thèmes historiques, de conflits entre différents groupes de pirates et de personnages mythiques tels que Jack Sparrow, Davy Jones et Calypso. Aucun film ne mentionne la création ou la diffusion d'une nouvelle musique populaire ou internationale.
+Sources : [1] pirates_caraibes.txt p.1 ; [2] pirates_caraibes.txt p.1 ; [3] pirates_caraibes.txt p.1 ; [4] kungfu_panda.txt p.1 ; [5] kungfu_panda.txt p.1
+
+Q4 : Qui sont les personnages qui sont en couple dans les films qui te sont passés en contexte ?
+R4 : Dans les films mentionnés ci-dessus, il y a plusieurs couples :
+
+1. Dans "Kung-Fu Panda 3", Shifu et Po sont une couple. Shifu est le chef du clan Panda, tandis que Po est un jeune panda novice qui va devenir le prochain chef du clan.
+
+2. Dans "Pirates of the Caribbean: The Curse of the Black Pearl", Elizabeth et Will sont une couple. Elizabeth est une pirate, tandis que Will est un marin qui va devenir capitaine de la Confrérie des Pirates.
+
+3. Dans "The Adventures of Ichaband", Jack Sparrow et Elizabeth Swann sont une couple. Jack Sparrow est un aventurier pirate, tandis que Elizabeth Swann est une pirate elle-même.
+
+Il convient de noter que ces couples sont différents entre eux, chacun ayant ses propres relations personnelles ou professionnelles.
+Sources : [1] kungfu_panda.txt p.1 ; [2] pirates_caraibes.txt p.1 ; [3] kungfu_panda.txt p.1 ; [4] pirates_caraibes.txt p.1 ; [5] kungfu_panda.txt p.1
+
+Q5 : Liste les personnages principaux des films Kung-Fu Panda 1 et 2.
+R5 : Les personnages principaux des films Kung-Fu Panda 1 et 2 sont :
+
+1. Po - Un jeune panda qui travaille comme serveur au restaurant sous les ordres de M. Ping, son père adoptif.
+2. M. Ping - Le père adoptif de Po, un chef cuisinier au restaurant.
+3. Oogway - Le grand maître de la vallée de la Paix, dirigé par les Cinq Cyclones.
+4. Shifu - L'un des Cinq Cyclones, le mentor de Po.
+5. Tai Lung - Le fils adoptif de Po, qui veut se venger de son père adoptif.
+6. Shen - Le fils de Po, qui utilise des feux d'artifice pour accomplir ses mauvais plans.
+7. Ping - Le père adoptif de Po, un chef cuisinier au restaurant.
+Sources : [1] kungfu_panda.txt p.1 ; [2] kungfu_panda.txt p.1 ; [3] kungfu_panda.txt p.1 ; [4] kungfu_panda.txt p.1 ; [5] kungfu_panda.txt p.1
+
+Q6 : Liste les personnages principaux du film Pirates des Caraïbes 1.
+R6 : Les personnages principaux du film "Pirates des Caraïbes" sont :
+
+1. Jack Sparrow - Un pirate célèbre et souvent confronté à ses ennemis.
+2. Elizabeth Swann - Une jeune femme noble qui tombe amoureuse de Jack Sparrow.
+3. Will Turner - L'amitié entre Elizabeth et Will est un thème important du film.
+4. Barbossa - Un pirate corrompu qui cherche à récupérer le coffre de Davy Jones.
+5. Captain Barbossa - Un ancien capitaine de la flotte royale britannique qui devient pirate.
+6. Hector Barbossa - Un ancien capitaine de la flotte royale britannique qui devient pirate.
+7. Tia Dalma - Une sorcière qui utilise des potions magiques pour aider Jack Sparrow.
+8. Calypso - Une déesse des mers qui est capturée par Davy Jones.
+9. Jones - Un géant marin qui contrôle les portes de la mer et possède un coffre contenant toutes les cartes de la planète.
+10. Jones - Un géant marin qui contrôle les portes de la mer et possède un coffre contenant toutes les cartes de la planète.
+Sources : [1] pirates_caraibes.txt p.1 ; [2] kungfu_panda.txt p.1 ; [3] pirates_caraibes.txt p.1 ; [4] pirates_caraibes.txt p.1 ; [5] pirates_caraibes.txt p.1
+
+Q7 : Liste les personnages principaux du film La Malédiction du Black Pearl.
+R7 : Les personnages principaux du film "La Malédiction du Black Pearl" sont :
+
+1. Elizabeth Swann - Fille du gouverneur Swann, elle est fiancée au commodore James Norrington mais s'éprend de William Turner.
+2. William Turner - Forgeron rencontré par Elizabeth lorsqu'elle était jeune, il devient son compagnon pendant la quête du trésor.
+3. Jack Sparrow - Capitaine du Black Pearl, il est également connu sous le nom de Captain Jack.
+4. Hector Barbossa - Un pirate qui attaque Port Royal pour retrouver le trésor aztèque.
+5. Lord Cutler Beckett - Personnage principal de la série, il est le commandant de la Compagnie des Indes Orientales et cherche à éliminer les pirates.
+6. Davy Jones - Pirate responsable du Hollandais volant, il est recherché par Barbossa pour récupérer le Black Pearl.
+7. Sao Feng - Pirate de Singapour qui détient la clé du coffre de Davy Jones.
+8. Tia Dalma - Sorcière qui ressuscite Barbossa après sa mort.
+Sources : [1] pirates_caraibes.txt p.1 ; [2] pirates_caraibes.txt p.1 ; [3] pirates_caraibes.txt p.1 ; [4] pirates_caraibes.txt p.1 ; [5] pirates_caraibes.txt p.1
+
+Q8 : Qui est l'ennemi principal de Po dans La Fontaine de Jouvence ?
+R8 : L'ennemi principal de Po dans "La Fontaine de Jouvence" est Cutler Beckett, le capitaine de la Compagnie des Indes Orientales.
+Sources : [1] kungfu_panda.txt p.1 ; [2] pirates_caraibes.txt p.1 ; [3] kungfu_panda.txt p.1 ; [4] kungfu_panda.txt p.1 ; [5] kungfu_panda.txt p.1
+
+Q9 : Qui est l'ennemi principal de Jack Sparrrow dans La Fontaine de Jouvence ?
+R9 : L'ennemi principal de Jack Sparrow dans "La Fontaine de Jouvence" est l'impétueux capitaine Barbossa, devenu corsaire au nom du roi George II de Grande-Bretagne.
+Sources : [1] pirates_caraibes.txt p.1 ; [2] pirates_caraibes.txt p.1 ; [3] pirates_caraibes.txt p.1 ; [4] pirates_caraibes.txt p.1 ; [5] pirates_caraibes.txt p.1
