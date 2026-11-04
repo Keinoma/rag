@@ -10,6 +10,7 @@ from pathlib import Path
 
 import chromadb
 import torch
+import re
 from pypdf import PdfReader
 from sentence_transformers import SentenceTransformer
 from transformers import (AutoModelForCausalLM, AutoTokenizer,
@@ -21,16 +22,16 @@ DOCS_DIR = BASE / "documents"      # tes PDF / txt / md
 DB_DIR = BASE / "chroma_db"        # l'index sera stocké ici
 
 EMBED_MODEL = "BAAI/bge-m3"        # embeddings multilingues (bon en français)
-CHUNK_CHARS = 2000                 # ~500 tokens
+CHUNK_CHARS = 1500                 # 
 OVERLAP_CHARS = 300                # chevauchement entre morceaux
-TOP_K = 5                          # nombre d'extraits envoyés au LLM
+TOP_K = 2                        # nombre d'extraits envoyés au LLM
 
 # LLM : None = on lit le nom du modèle de base dans adapter_config.json.
 # Sinon mets un nom ou un chemin, ex. "Qwen/Qwen2.5-3B-Instruct"
 LLM_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 USE_ADAPTER = False                # True = applique ton adapter LoRA par-dessus
 ADAPTER_DIR = Path(r"C:\Projets\finetune\modele_finetuned_lora")
-LOAD_4BIT = False                   # 4 bits : économise la VRAM
+LOAD_4BIT = True                   # 4 bits : économise la VRAM
 MAX_NEW_TOKENS = 512
 HISTORY_TURNS = 3                  # nombre d'échanges gardés en mémoire
 
@@ -54,14 +55,15 @@ def extract_pages(path):
 def chunk(text, size=CHUNK_CHARS, overlap=OVERLAP_CHARS):
     """Découpe en morceaux d'environ `size` caractères, par lignes entières,
     avec un chevauchement de `overlap` caractères."""
+    
     units = []
     for line in text.split("\n"):
-        line = line.strip()
-        while len(line) > size:  # ligne géante : découpe brute
-            units.append(line[:size])
-            line = line[size:]
-        if line:
-            units.append(line)
+        for s in re.split(r"(?<=[.!?…])\s+", line.strip()):
+            while len(s) > size:  # phrase géante : découpe brute
+                units.append(s[:size])
+                s = s[size:]
+            if s:
+                units.append(s)
 
     chunks, current = [], []
     for u in units:
@@ -190,15 +192,20 @@ def chat():
         question = input("Toi > ").strip()
         if question.lower() in {"", "quit", "exit"}:
             break
+        history.clear()
 
+        # --- Là c'est juste pour la recherche ---
         search_query = rewrite_question(tok, model, history, question)
         if search_query != question:
             print(f"  (recherche : {search_query})")
         hits = retrieve(col, embedder, search_query)
 
+        # --- Là on ajoute le contexte au prompt qui sera envoyé ---
         context = "\n\n".join(
             f"[{i}] ({m['source']}, p.{m['page']})\n{doc}"
             for i, (doc, m) in enumerate(hits, 1))
+        print(context)
+
         messages = [{"role": "system", "content": SYSTEM_PROMPT}]
         for q, a in history[-HISTORY_TURNS:]:
             messages += [{"role": "user", "content": q},
@@ -210,9 +217,22 @@ def chat():
         answer = generate(tok, model, messages, stream=True)
         history.append((question, answer))
 
+        # --- Dis d'où il a tiré ses infos, donc quel fichier, quelle page ---
         print("\nSources :")
         for i, (_, m) in enumerate(hits, 1):
             print(f"  [{i}] {m['source']}, p.{m['page']}")
+
+        # --- Comparaison : même question, sans RAG ---
+        base_messages = [{"role": "system",
+                          "content": "Tu es un assistant pédagogique. Réponds en français."}]
+        for q, a in history[:-1][-HISTORY_TURNS:]:
+            base_messages += [{"role": "user", "content": q},
+                              {"role": "assistant", "content": a}]
+        base_messages.append({"role": "user", "content": question})
+        print("\nSans RAG > ", end="", flush=True)
+        generate(tok, model, base_messages, stream=True)
+
+
         print()
 
 
