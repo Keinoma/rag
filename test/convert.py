@@ -1,3 +1,8 @@
+"""
+C'est juste pr convertir le .md en un .jsonl à la bien
+"""
+
+
 import json
 
 input_path = "input.md"
