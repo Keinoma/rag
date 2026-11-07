@@ -24,7 +24,7 @@ rag/
 
 | Paramètre        | Valeur                     | Rôle                             |
 | ---------------- | -------------------------- | -------------------------------- |
-| `CHUNK_CHARS`    | 750                        | Taille d'un morceau              |
+| `CHUNK_CHARS`    | 650                        | Taille d'un morceau              |
 | `OVERLAP_CHARS`  | 200                        | Chevauchement entre morceaux     |
 | `TOP_K`          | 3                          | Nombre d'extraits envoyés au LLM |
 | `EMBED_MODEL`    | BAAI/bge-m3                | Modèle d'embeddings              |
@@ -43,3 +43,8 @@ Surtout, ajout dans création de contexte d'un truc qui empêche de couper une p
 3:
 Production de 10 textes de réf
 Production d'un lot de 50 quest/rep format .jsonl
+
+4:
+Création d'en-tête mise au début de chaque chunk. Contient : - titre (nom du fichier duquel tiré) - keywords (~les noms propres)
+Aussi, affichage de la distance entre chaque chunk selectionné et la question.
+Attention, un chunk peut-etre très proche et qd mm pas contenir la réponse mais voilà

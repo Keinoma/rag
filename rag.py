@@ -22,7 +22,7 @@ DOCS_DIR = BASE / "documents"      # tes PDF / txt / md
 DB_DIR = BASE / "chroma_db"        # l'index sera stocké ici
 
 EMBED_MODEL = "BAAI/bge-m3"        # embeddings multilingues (bon en français)
-CHUNK_CHARS = 750                 # 
+CHUNK_CHARS = 600                 # 
 OVERLAP_CHARS = 200                # chevauchement entre morceaux
 TOP_K = 3                        # nombre d'extraits envoyés au LLM
 
@@ -52,6 +52,27 @@ def extract_pages(path):
         return [(i + 1, p.extract_text() or "") for i, p in enumerate(reader.pages)]
     return [(1, path.read_text(encoding="utf-8", errors="ignore"))]
 
+def titre_depuis_fichier(path):
+    """'01-Pirates des Caraïbes.txt' -> 'Pirates des Caraïbes'"""
+    return path.stem[3:].strip()
+
+
+def mots_cles(text, titre="", max_kw=8):
+    """Mots à majuscule qui ne sont pas en début de phrase (≈ noms propres)."""
+    deja = {m.lower() for m in re.findall(r"\w+", titre)}
+    kws = []
+    for line in text.split("\n"):
+        mots = re.findall(r"\w+(?:-\w+)*", line)
+        for mot in mots[1:]:  # le 1er mot de la ligne = début de phrase
+            if mot[0].isupper() and mot.lower() not in deja and mot not in kws:
+                kws.append(mot)
+    return kws[:max_kw]
+
+def entete(titre, kws):
+    h = f"Extrait de {titre}"
+    if kws:
+        h += f", mots-clés : {', '.join(kws)}"
+    return h + "."
 
 def chunk(text, size=CHUNK_CHARS, overlap=OVERLAP_CHARS):
     """Découpe en morceaux d'environ `size` caractères, par lignes entières,
@@ -91,11 +112,13 @@ def build_index():
 
     ids, texts, metas = [], [], []
     for f in files:
+        titre = titre_depuis_fichier(f)
         for page, text in extract_pages(f):
             for i, c in enumerate(chunk(text)):
+                kws = mots_cles(c, titre)
                 ids.append(f"{f.name}-p{page}-c{i}")
-                texts.append(c)
-                metas.append({"source": f.name, "page": page})
+                texts.append(f"{entete(titre, kws)}\n{c}")
+                metas.append({"source": f.name, "page": page, "titre": titre})
     if not texts:
         sys.exit("Aucun texte extrait (PDF scannés ? il faudrait de l'OCR).")
     print(f"{len(files)} document(s), {len(texts)} morceaux. Calcul des embeddings...")
@@ -172,7 +195,10 @@ def rewrite_question(tok, model, history, question):
 
 def retrieve(col, embedder, query):
     vec = embedder.encode([query], normalize_embeddings=True).tolist()
-    res = col.query(query_embeddings=vec, n_results=TOP_K)
+    res = col.query(query_embeddings=vec, n_results=TOP_K,
+                    include=["documents", "metadatas", "distances"])
+    for d, m in zip(res["distances"][0], res["metadatas"][0]):
+        print(f"  distance={d:.3f}  {m['source']} p.{m['page']}")
     return list(zip(res["documents"][0], res["metadatas"][0]))
 
 
