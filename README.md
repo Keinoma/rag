@@ -7,9 +7,8 @@ avec un LLM local et un jeu de test pour évaluer le pipeline.
 
 rag/
 ├── rag.py (python rag.py index, puis : python rag.py chat OU python eval.py)  
-├── eval.py (3 modes : RAG / sans RAG / oracle)
 ├── .gitignore
-├── historique*des_commits.txt  
+├── historique.txt  
 ├── documents/ (10 fichiers .txt, un par film)
 │ ├── 01-03 Pirates des Caraïbes (réels)
 │ ├── 04-06 Kung Fu Panda (réels)
@@ -19,19 +18,15 @@ rag/
 ├── chroma_db/ (généré par `rag.py index`)
 └── test/
 ├── questions.jsonl
-└── runs/ (généré par `eval.py`)
-└── <date>*<tag>/
-├── results.jsonl # Détail complet : chunks, rangs, réponses, temps
-├── review.csv # Relecture manuelle (colonnes verdict\_\* à remplir)
-└── summary.json # Configuration du run + métriques agrégées
+└── convert.py (.md -> .jsonl)
 
 ## Paramètres principaux (`rag.py`)
 
 | Paramètre        | Valeur                     | Rôle                             |
 | ---------------- | -------------------------- | -------------------------------- |
 | `CHUNK_CHARS`    | 750                        | Taille d'un morceau              |
-| `OVERLAP_CHARS`  | 300                        | Chevauchement entre morceaux     |
-| `TOP_K`          | 5                          | Nombre d'extraits envoyés au LLM |
+| `OVERLAP_CHARS`  | 200                        | Chevauchement entre morceaux     |
+| `TOP_K`          | 3                          | Nombre d'extraits envoyés au LLM |
 | `EMBED_MODEL`    | BAAI/bge-m3                | Modèle d'embeddings              |
 | `LLM_NAME`       | Qwen/Qwen2.5-1.5B-Instruct | Modèle de génération (4 bits)    |
 | `MAX_NEW_TOKENS` | 150                        | Longueur maximale de la réponse  |

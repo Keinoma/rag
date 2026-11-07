@@ -1,8 +1,0 @@
-1: tout fonctionne +/-
-Mieux de tout mettre 4 résumés dans un fichier plutôt que 1fhcihier/résumé
-
-2: 
-Réduction de CHUNK_CHARS et TOP_K.
-Surtout, ajout dans création de contexte d'un truc qui empêche de couper une phrase en 2. Attendre fin phrase.
-
-

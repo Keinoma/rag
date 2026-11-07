@@ -23,8 +23,8 @@ DB_DIR = BASE / "chroma_db"        # l'index sera stocké ici
 
 EMBED_MODEL = "BAAI/bge-m3"        # embeddings multilingues (bon en français)
 CHUNK_CHARS = 750                 # 
-OVERLAP_CHARS = 300                # chevauchement entre morceaux
-TOP_K = 5                        # nombre d'extraits envoyés au LLM
+OVERLAP_CHARS = 200                # chevauchement entre morceaux
+TOP_K = 3                        # nombre d'extraits envoyés au LLM
 
 # LLM : None = on lit le nom du modèle de base dans adapter_config.json.
 # Sinon mets un nom ou un chemin, ex. "Qwen/Qwen2.5-3B-Instruct"
